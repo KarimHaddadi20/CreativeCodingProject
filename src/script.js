@@ -122,6 +122,25 @@ window.addEventListener('resize', () =>
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
+
+window.addEventListener('load', () => {
+    let counter = 100;
+    const loader = document.getElementById('loading');
+    const loaderNumber = document.getElementById('loader-number');
+
+    loaderNumber.style.color = "#ffffff"; // Ajoutez cette ligne
+    loaderNumber.style.fontSize = "40px";
+
+    const intervalId = setInterval(() => {
+        counter--;
+        loaderNumber.textContent = counter;
+
+        if (counter === 0) {
+            clearInterval(intervalId);
+            loader.classList.add('fade-out');
+        }
+    }, 20); // update every second
+});
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.z = 2
@@ -137,7 +156,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-renderer.setClearColor(0xffffff)
+renderer.setClearColor(0x000000)
 
 // Animate
 const clock = new THREE.Clock()
@@ -147,6 +166,9 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     particles.rotation.y += 0.01
+
+    // Change color over time
+    particlesMaterial.color.setHSL(elapsedTime % 1, 1, 0.5)
 
     particlesGeometry.attributes.position.needsUpdate = true
 
