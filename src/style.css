@@ -1,0 +1,61 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Hk';
+    src: url("../static/fonts/HkGroteskWide-Bold.woff2") format("woff2"),
+    url("../static/fonts/HkGroteskWide-Bold.woff") format("woff");
+}
+
+.webgl
+{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+.title-1 {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #191b95;
+}
+
+h1 {
+    font-family: Hk;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 5vw;
+}
+
+
+.title-2 {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #191b95;
+}
+
+.title-3 {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #191b95;
+}
