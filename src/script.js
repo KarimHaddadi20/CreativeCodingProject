@@ -16,8 +16,8 @@ loader.load(
         gltf = loadedGltf;
 
         
-        gltf.scene.position.set(0, 0, 0); // Centrer le modèle
-        gltf.scene.scale.set(0.4, 0.4, 0.4); // Réduire la taille du modèle de moitié
+        gltf.scene.position.set(-2, -0.2, 0); // Centrer le modèle
+        gltf.scene.scale.set(0.2, 0.2, 0.2); // Réduire la taille du modèle de moitié
         
         scene.add(gltf.scene);    
         
@@ -228,6 +228,14 @@ tick()
 let previousScroll = window.scrollY;
 
 window.addEventListener('scroll', () => {
+    
+    
+       // Calculer une nouvelle position y en fonction de la position de défilement
+       const scrollPosition = window.scrollY * 0.0001;
+
+       // Mettre à jour la position y du modèle
+       gltf.scene.position.y = -0.01 - scrollPosition;
+    
     const currentScroll = window.scrollY;
 
     // Rotate model on scroll down
