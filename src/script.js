@@ -235,9 +235,9 @@ window.addEventListener('scroll', () => {
         gltf.scene.rotation.y += Math.PI / 180; // Rotate 1 degree
     }
 
-    // Reset rotation on scroll up
+    // Rotate model on scroll up
     if (currentScroll < previousScroll && gltf && gltf.scene) {
-        gltf.scene.rotation.y = 0; // Reset rotation
+        gltf.scene.rotation.y -= Math.PI / 180; // Rotate -1 degree
     }
 
     previousScroll = currentScroll;
@@ -255,6 +255,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Ambient light
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+ambientLight.intensity = 10; // Adjust the intensity here
+
 scene.add(ambientLight);
 
 // Directional light
